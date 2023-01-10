@@ -52,13 +52,13 @@
     ?>
 </head>
 <body>
-    
+
     <table class="table">
         <thead>
             <tr>
                 <?php
                     foreach ($hotels[0] as $key => $value) {
-                        echo '<th scope="col">' . $key . '</th>';
+                        echo '<th>' . $key . '</th>';
                     }
                 ?>
             </tr>
@@ -68,10 +68,16 @@
             <?php
                 foreach ($hotels as $hotel) {
                     
+                    if ($hotel['parking'] === true) {
+                        $hotel['parking'] = 'disponibile';
+                    } else {
+                        $hotel['parking'] = 'non disponibile';
+                    }
+
                     echo '<tr>';
 
-                    foreach ($hotel as $key => $value) {
-                        echo '<td>' . $value . '</td>';
+                    foreach ($hotel as $info) {
+                        echo '<td>' . $info . '</td>';
                     }
 
                     echo '</tr>';
@@ -79,6 +85,6 @@
             ?>
         </tbody>
     </table>
-        
+
 </body>
 </html>
