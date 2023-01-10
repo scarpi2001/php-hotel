@@ -53,17 +53,32 @@
 </head>
 <body>
     
-    <?php
+    <table class="table">
+        <thead>
+            <tr>
+                <?php
+                    foreach ($hotels[0] as $key => $value) {
+                        echo '<th scope="col">' . $key . '</th>';
+                    }
+                ?>
+            </tr>
+        </thead>
 
-        foreach ($hotels as $hotel) {
-            echo "<h1>" . "Nome: " . $hotel["name"] . "</h1>"
-            . "<h3>" . "Descrizione: ". $hotel["description"] . "</h3>"
-            . "<h3>" . "Parcheggio: ". $hotel["parking"] . "</h3>"
-            . "<h3>" . "Voto: ". $hotel["vote"] . "</h3>"
-            . "<h3>" . "Distanza dal centro: ". $hotel["distance_to_center"] . "</h3>";
-        };
+        <tbody>
+            <?php
+                foreach ($hotels as $hotel) {
+                    
+                    echo '<tr>';
 
-    ?>
-    
+                    foreach ($hotel as $key => $value) {
+                        echo '<td>' . $value . '</td>';
+                    }
+
+                    echo '</tr>';
+                }
+            ?>
+        </tbody>
+    </table>
+        
 </body>
 </html>
